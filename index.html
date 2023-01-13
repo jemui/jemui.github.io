@@ -5,7 +5,26 @@
 	<title>gyro.js - easy access to your web browsers built in accelerometer's and gyroscope's</title>
 </head>
 <body>
+	<script>
+		function getAccel(){
+			DeviceMotionEvent.requestPermission().then(response => {
+				if (response == 'granted') {
+				// Add a listener to get smartphone acceleration 
+					// in the XYZ axes (units in m/s^2)
+					window.addEventListener('devicemotion', (event) => {
+						console.log(event);
+					});
+			// Add a listener to get smartphone orientation 
+				// in the alpha-beta-gamma axes (units in degrees)
+					window.addEventListener('deviceorientation',(event) => {
+						console.log(event);
+					});
+				}
+			});
+		} 
+	</script>
 	<button id="accelPermsButton" onclick="getAccel()"><h1>Get Accelerometer Permissions</h1></button>
+
 	<p>This Example just print's the raw accelerometer and gyro data. Will return null if no device information is found.</p>
 	<p>gyro.getFeatures: <span id="features"></span></p>
 
