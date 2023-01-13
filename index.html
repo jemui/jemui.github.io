@@ -5,10 +5,13 @@
 	<title>gyro.js - easy access to your web browsers built in accelerometer's and gyroscope's</title>
 </head>
 <body>
+	<button id="accelPermsButton" onclick="getAccel()"><h1>Get Accelerometer Permissions</h1></button>
 	<p>This Example just print's the raw accelerometer and gyro data. Will return null if no device information is found.</p>
 	<p>gyro.getFeatures: <span id="features"></span></p>
+
+
 	<span id="example"></span>
-	<script src="../js/gyro.js"></script>
+	<script src="js/gyro.js"></script>
 	<script>
 		gyro.startTracking(function(o) {
 			var b = document.getElementById('example'),
