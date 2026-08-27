@@ -25,7 +25,7 @@ const navItems: NavItem[] = [
 
 const contactLinks: ContactLink[] = [
     { label: "GitHub", href: "https://github.com/jemui", external: true },
-    { label: "LinkedIn", href: "https://linkedin.com/in/YOUR-HANDLE", external: true },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/jeanette-mui/", external: true },
 ];
 
 const email = "jeanettemui101@gmail.com";
