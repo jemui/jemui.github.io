@@ -86,7 +86,7 @@ export const projects: Project[] = [
           \nArtist - Karen Lee
           Programmer - Jeanette Mui
           Sound Designer - Erica Nguyen`,
-    trailerLink: "https://www.youtube.com/watch?v=agRRKOOB3kI&feature=youtu.be",
-    playLink: "https://where-my-heart-is.itch.io/game",
+    trailerLink: "https://youtu.be/9-rUm5VolIw",
+    playLink: "https://pandacats.itch.io/hotaru-no-machi",
   },
 ];
