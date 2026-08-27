@@ -1,16 +1,21 @@
 import Image from "next/image";
 import { projects } from "@/data/projects";
 import type { ProjectCategory } from "@/types/project";
+import ProjectCard from "@/components/ProjectCard";
+import CategorySection from "@/components/CategorySection";
 
+/***
+ * NOTE: DISCLAIMERS NEEDED , ECOMMERCE MIGHT BE GOOD TO MENTION... 
+ */
 const categoryOrder: ProjectCategory[] = ["current", "3d", "2d", "personal"];
 const categoryLabels: Record<ProjectCategory, string> = {
-  current: "Current / Recent Work",
-  "3d": "3D Interactive Experiences",
-  "2d": "2D Interactive Experiences",
-  personal: "Personal Games",
+  current: "Recent Work (2D Playable Ads)",
+  "3d": "3D Playable Ads - Video Demo",
+  "2d": "2D Playable Ads - Video Demo",
+  personal: "Game Projects",
 };
 
-const currentProjects = projects.filter((p) => p.category === "current");
+// const currentProjects = projects.filter((p) => p.category === "current");
 
 export default function Home() {
   return (
@@ -21,59 +26,26 @@ export default function Home() {
         if (items.length === 0) return null; // skip empty sections
 
         return (
-          <section key={category} className="mb-12">
-            <h2 className="text-xl font-semibold mb-4">
-              {categoryLabels[category]}
-            </h2>
-
-            <div className="grid gap-6 sm:grid-cols-2">
+          <CategorySection key={category} title={categoryLabels[category]}>
+            <div className={category === "personal" ? "flex flex-col items-center gap-6" : "flex flex-wrap justify-center gap-4"}>
               {items.map((project) => (
-                // your job: render one project's card here.
-                // needs: project.title, and conditionally:
-                //   - project.description (if present)
-                //   - project.video → a <video> tag (controls, loop, muted, src={project.video})
-                //   - project.link → an <a> tag (target="_blank", rel="noopener noreferrer")
-                //   - project.thumbnail → an <img> tag, if present (use next/image eventually,
-                //     plain <img> is fine to start)
-
-                <div key={project.title} className="border rounded-lg p-4">
-                  <h3 className="font-medium mb-2">{project.title}</h3>
-
-                  {project.year && (
-                    <p className="text-sm text-zinc-500 mb-2">{project.year}</p>
-                  )}
-
-                  {project.description && (
-                    <p className="text-sm mb-3">{project.description}</p>
-                  )}
-
-                  {project.thumbnail && (
-                    <img src={project.thumbnail} alt={project.title} className="w-full rounded mb-3" />
-                  )}
-
-                  {project.video && (
-                    <video controls loop muted className="w-full rounded mb-3">
-                      <source src={project.video} />
-                    </video>
-                  )}
-
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm underline"
-                      >
-                        View Project
-                    </a>
-                  )}
-
-                </div>
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  layout={category === "personal" ? "horizontal" : "vertical"}
+                />
               ))}
             </div>
-          </section>
+          </CategorySection>
         );
       })}
+
+      <p className="text-xs text-zinc-400 text-center mt-16 max-w-xl mx-auto">
+        All product names, logos, brands, trademarks and registered trademarks are property of their respective owners. All company, product and service names used in this playable ad are for identification purposes only. Use of these names, trademarks and brands does not imply endorsement.
+      </p>
+      {/* <p className="text-sm italic text-accent text-center mt-4">
+        I've also built eCommerce HTML ads (product showcases with reviews) for brands like Everyday Dose, Barkbox, Ketone-IQ, and more.
+      </p> */}
     </main>
   );
 }
