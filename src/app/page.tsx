@@ -9,10 +9,14 @@ import CategorySection from "@/components/CategorySection";
  */
 const categoryOrder: ProjectCategory[] = ["current", "3d", "2d", "personal"];
 const categoryLabels: Record<ProjectCategory, string> = {
-  current: "Recent Work (2D Playable Ads)",
-  "3d": "3D Playable Ads - Video Demo",
-  "2d": "2D Playable Ads - Video Demo",
+  current: "Recent Work (2D Playable Ads - Phaser 3/4)",
+  "3d": "3D Playable Ads - Video Demo (Three.js)",
+  "2d": "2D Playable Ads - Video Demo (Phaser 2)",
   personal: "Game Projects",
+};
+const categoryDescriptions: Partial<Record<ProjectCategory, string>> = {
+  "3d": "Note: These playables were originally hosted and distributed through AppLovin. \nSince those original hosted demos are no longer available, I've included video recordings of the experiences instead.",
+  "2d": "Note: These playables were originally hosted and distributed through AppLovin. \nSince those original hosted demos are no longer available, I've included video recordings of the experiences instead.",
 };
 
 // const currentProjects = projects.filter((p) => p.category === "current");
@@ -36,6 +40,11 @@ export default function Home() {
                 />
               ))}
             </div>
+            {categoryDescriptions[category] && (
+              <p className="mt-4 text-sm text-zinc-400text-center whitespace-pre-line italic">
+                {categoryDescriptions[category]}
+              </p>
+            )}
           </CategorySection>
         );
       })}
