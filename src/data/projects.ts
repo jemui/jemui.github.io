@@ -23,6 +23,16 @@ export const projects: Project[] = [
     autoplay: true,
     playLink: "https://jest.com/g/fmf-tile-simplematch3lv2",
   },
+  //current personal
+  {
+    title: "Pay Up!",
+    category: "currentPersonal",
+    thumbnail: "img/payupalt.png",
+    description: `This is a very early stage prototype.\nA small 2D village-management prototype built in Unity.\nPlayers construct houses that spawn villagers to gather resources to pay gold to the king.`,
+    trailerLink: "https://vimeo.com/1230021777?share=copy&fl=sv&fe=ci",
+    playLink: "https://pandacats.itch.io/pay-up",
+  },
+
   {
     title: "Tangled Snakes",
     category: "2d",

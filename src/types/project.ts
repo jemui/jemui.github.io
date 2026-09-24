@@ -1,4 +1,4 @@
-export type ProjectCategory = "current" | "3d" | "2d" | "personal";
+export type ProjectCategory = "current" | "currentPersonal" |"3d" | "2d" | "personal";
 
 export interface Project {
   title: string;

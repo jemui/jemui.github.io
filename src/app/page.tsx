@@ -7,9 +7,10 @@ import CategorySection from "@/components/CategorySection";
 /***
  * NOTE: DISCLAIMERS NEEDED , ECOMMERCE MIGHT BE GOOD TO MENTION... 
  */
-const categoryOrder: ProjectCategory[] = ["current", "3d", "2d", "personal"];
+const categoryOrder: ProjectCategory[] = ["current", "currentPersonal", "3d", "2d", "personal"];
 const categoryLabels: Record<ProjectCategory, string> = {
-  current: "Recent Work (2D Playable Ads - Phaser 3/4)",
+  current: "Recent Work (2D Playable Ads - Phaser 3 and 4)",
+  currentPersonal: "Recent Work (Unity)",
   "3d": "3D Playable Ads - Video Demo (Three.js)",
   "2d": "2D Playable Ads - Video Demo (Phaser 2)",
   personal: "Game Projects",
@@ -26,17 +27,17 @@ export default function Home() {
     <main className="max-w-4xl mx-auto px-4 py-12">
       {categoryOrder.map((category) => {
         const items = projects.filter((p) => p.category === category);
+        const isPersonal = category === "personal" || category === "currentPersonal";
 
         if (items.length === 0) return null; // skip empty sections
-
         return (
           <CategorySection key={category} title={categoryLabels[category]}>
-            <div className={category === "personal" ? "flex flex-col items-center gap-6" : "flex flex-wrap justify-center gap-4"}>
+            <div className={isPersonal ? "flex flex-col items-center gap-6" : "flex flex-wrap justify-center gap-4"}>
               {items.map((project) => (
                 <ProjectCard
                   key={project.title}
                   project={project}
-                  layout={category === "personal" ? "horizontal" : "vertical"}
+                  layout={isPersonal ? "horizontal" : "vertical"}
                 />
               ))}
             </div>
