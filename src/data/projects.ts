@@ -25,6 +25,15 @@ export const projects: Project[] = [
   },
   //current personal
   {
+    title: "Little Mage, Big Magic",
+    category: "currentPersonal",
+    thumbnail: "img/littlemagebigmagic.png",
+    description: `This is a turn-based combat game with roguelite-style progression, built solo in Unity for the DreamLayer Game Jam. Pick spells, fight through forest encounters, and grow your mastery across runs.\n
+    All art was generated with DreamLayer, and the game was designed, built, and shipped in 1 week.`,
+    trailerLink: "https://vimeo.com/1234591740?share=copy&fl=sv&fe=ci",
+    playLink: "https://pandacats.itch.io/little-mage-big-magic",
+  },
+  {
     title: "Pay Up!",
     category: "currentPersonal",
     thumbnail: "img/payupalt.png",

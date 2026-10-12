@@ -32,7 +32,7 @@ export default function Home() {
         if (items.length === 0) return null; // skip empty sections
         return (
           <CategorySection key={category} title={categoryLabels[category]}>
-            <div className={isPersonal ? "flex flex-col items-center gap-6" : "flex flex-wrap justify-center gap-4"}>
+            <div className={isPersonal ? "grid grid-cols-1 md:grid-cols-2 gap-4" : "flex flex-wrap justify-center gap-4"}>
               {items.map((project) => (
                 <ProjectCard
                   key={project.title}
